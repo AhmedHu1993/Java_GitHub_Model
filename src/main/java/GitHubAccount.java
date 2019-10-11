@@ -31,5 +31,15 @@ public class GitHubAccount {
         return this.accountType;
     }
 
+    public void upgradeAccount(){
+        this.accountType = AccountType.PRO;
+    }
 
+    public void downgradeAccount(){
+        this.accountType = AccountType.FREE;
+    }
+
+    public void addRepo(Repository repo){
+        this.repositories.put(repo.getName(), repo);
+    }
 }
