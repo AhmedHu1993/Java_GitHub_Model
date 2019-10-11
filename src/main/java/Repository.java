@@ -4,13 +4,13 @@ import java.util.ArrayList;
 public class Repository {
 
     private String name;
-    private String descricription;
+    private String description;
     private ArrayList<Commit> commits;
     private RepoType repoType;
 
-    public Repository(String name, String descricription, RepoType repoType){
+    public Repository(String name, String description, RepoType repoType){
         this.name = name;
-        this.descricription = descricription;
+        this.description = description;
         this.commits = new ArrayList<Commit>();
         this.repoType = repoType;
     }
@@ -19,8 +19,8 @@ public class Repository {
         return this.name;
     }
 
-    public String getDescricription() {
-        return this.descricription;
+    public String getDescription() {
+        return this.description;
     }
 
     public ArrayList<Commit> getCommits() {
@@ -29,5 +29,33 @@ public class Repository {
 
     public RepoType getRepoType() {
         return this.repoType;
+    }
+
+    public void addCommit(Commit commit){
+        if (!this.commits.contains(commit)){
+            this.commits.add(commit);
+        }
+    }
+
+    public Commit getCommitById(int id){
+        Commit foundCommit = null ;
+
+        for (Commit commit : this.commits){
+            if(commit.getUniqueId() == id){
+                foundCommit = commit;
+            }
+        }
+        return foundCommit;
+    }
+
+    public ArrayList<Commit> getAllCommitsWithSpecificType(CommitType type){
+        ArrayList<Commit> foundCommits = new ArrayList<Commit>();
+
+        for (Commit commit : commits){
+            if (commit.getType() == type){
+                foundCommits.add(commit);
+            }
+        }
+        return foundCommits;
     }
 }
