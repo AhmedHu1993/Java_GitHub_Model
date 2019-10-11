@@ -10,7 +10,7 @@ public class RepositoryTest {
 
     @Before
     public void setup(){
-        commit1 = new Commit();
+        commit1 = new Commit(1,"initialize", CommitType.OTHER);
         repository1 = new Repository("Habit Tracker", "JS project", RepoType.PRIVATE);
     }
 
