@@ -1,36 +1,35 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class GitHubAccount {
 
     private String username;
     private String name;
-    private ArrayList<Repository> repositories;
+    private HashMap<String , Repository> repositories;
     private AccountType accountType;
 
-    public GitHubAccount(String username, String name, AccountType accountType){
+    public GitHubAccount(String username, String name){
         this.username = username;
         this.name = name;
-        this.repositories = new ArrayList<Repository>();
-        this.accountType = accountType;
+        this.repositories = new HashMap<String, Repository>();
+        this.accountType = AccountType.FREE;
     }
 
     public String getUsername() {
-        return username;
+        return this.username;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
-    public ArrayList<Repository> getRepositories() {
-        return repositories;
+    public HashMap getRepositories() {
+        return this.repositories;
     }
 
     public AccountType getAccountType() {
-        return accountType;
+        return this.accountType;
     }
 
-    public void addRepo(Repository repository){
-        this.repositories.add(repository);
-    }
+
 }

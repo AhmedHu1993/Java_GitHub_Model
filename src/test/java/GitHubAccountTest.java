@@ -11,8 +11,8 @@ public class GitHubAccountTest {
 
     @Before
     public void setup(){
-        repository1 = new Repository();
-        account1 = new GitHubAccount("ahm93", "Ahmed", AccountType.FREE );
+        repository1 = new Repository("Habit Tracker", "JS project", RepoType.PUBLIC);
+        account1 = new GitHubAccount("ahm93", "Ahmed");
     }
 
     @Test
@@ -23,11 +23,7 @@ public class GitHubAccountTest {
         assertEquals(0, account1.getRepositories().size());
     }
 
-    @Test
-    public void testCanAddRepoToAccountRepos(){
-        account1.addRepo(repository1);
-        assertEquals(1, account1.getRepositories().size());
-    }
+
 
 
 }
