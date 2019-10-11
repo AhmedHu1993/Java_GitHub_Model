@@ -42,4 +42,8 @@ public class GitHubAccount {
     public void addRepo(Repository repo){
         this.repositories.put(repo.getName(), repo);
     }
+
+    public Repository getRepoByName(String name) {
+        return this.repositories.get(name);
+    }
 }

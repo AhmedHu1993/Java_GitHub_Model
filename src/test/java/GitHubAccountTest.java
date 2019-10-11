@@ -66,7 +66,7 @@ public class GitHubAccountTest {
         assertEquals("ahm93", account1.getUsername());
         assertEquals("Ahmed", account1.getName());
         assertEquals(AccountType.FREE, account1.getAccountType());
-        assertEquals(0, account1.getRepositories().size());
+        assertEquals(3, account1.getRepositories().size());
     }
 
     @Test
@@ -82,6 +82,9 @@ public class GitHubAccountTest {
         assertEquals(AccountType.FREE, account1.getAccountType());
     }
 
-
+    @Test
+    public void testGetRepoByName(){
+        assertEquals(repo3, account1.getRepoByName("PDA"));
+    }
 
 }
