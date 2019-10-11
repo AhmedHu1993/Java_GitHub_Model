@@ -34,4 +34,9 @@ public class GitHubTest {
     public void testGitHubContainsAccounts(){
         assertEquals(5, gitHub.getAccounts().size());
     }
+
+    @Test
+    public void testSortedMapForAccounts(){
+        assertEquals(0, gitHub.getSortedListOfAccounts().indexOf(account4));
+    }
 }
