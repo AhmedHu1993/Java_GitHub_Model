@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class GitHubAccount {
 
@@ -45,5 +46,19 @@ public class GitHubAccount {
 
     public Repository getRepoByName(String name) {
         return this.repositories.get(name);
+    }
+
+    public Repository getRepoByMostCommits(){
+        int maxNumber = 0;
+        Repository repoWithMaxCommits = null;
+
+        for (Map.Entry mapElement : repositories.entrySet()){
+            Repository repository =  (Repository) mapElement.getValue();
+            if (repository.getCommits().size() > maxNumber){
+                maxNumber = repository.getCommits().size();
+                repoWithMaxCommits = repository;
+            }
+        }
+        return  repoWithMaxCommits;
     }
 }

@@ -45,7 +45,7 @@ public class GitHubAccountTest {
         repo1.addCommit(commit1);
         repo1.addCommit(commit2);
         repo1.addCommit(commit3);
-        repo1.addCommit(commit4);
+//        repo1.addCommit(commit4);
 
         repo2.addCommit(commit5);
         repo2.addCommit(commit6);
@@ -85,6 +85,11 @@ public class GitHubAccountTest {
     @Test
     public void testGetRepoByName(){
         assertEquals(repo3, account1.getRepoByName("PDA"));
+    }
+
+    @Test
+    public void testGetRepoWithMaxCommits(){
+        assertEquals(repo2, account1.getRepoByMostCommits());
     }
 
 }
