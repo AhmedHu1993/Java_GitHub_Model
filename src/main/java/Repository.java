@@ -1,5 +1,5 @@
-import javax.naming.ldap.PagedResultsControl;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Repository {
 
@@ -57,5 +57,16 @@ public class Repository {
             }
         }
         return foundCommits;
+    }
+
+    public void revertAtCommit(int uniqueId) {
+        Commit lastCommit = getCommitById(uniqueId);
+        int indexNumberOfLastCommit = this.commits.indexOf(lastCommit);
+        int numberOfCommits = this.commits.size();
+
+        for (int i = numberOfCommits - 1; i > indexNumberOfLastCommit; i--){
+            this.commits.remove(i);
+        }
+
     }
 }

@@ -52,5 +52,15 @@ public class RepositoryTest {
         assertEquals(2, repository1.getAllCommitsWithSpecificType(CommitType.OTHER).size());
     }
 
+    @Test
+    public void testCanRevertCommitToCertainPoint(){
+        repository1.addCommit(commit1);
+        repository1.addCommit(commit2);
+        repository1.addCommit(commit3);
+        repository1.addCommit(commit4);
+        repository1.revertAtCommit(2);
+        assertEquals(2, repository1.getCommits().size());
+    }
+
 
 }
