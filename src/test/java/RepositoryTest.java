@@ -55,11 +55,12 @@ public class RepositoryTest {
     @Test
     public void testCanRevertCommitToCertainPoint(){
         repository1.addCommit(commit1);
+        repository1.addCommit(commit4);
         repository1.addCommit(commit2);
         repository1.addCommit(commit3);
-        repository1.addCommit(commit4);
         repository1.revertAtCommit(2);
         assertEquals(2, repository1.getCommits().size());
+        assertEquals(commit2 , repository1.getCommits().get(1));
     }
 
 

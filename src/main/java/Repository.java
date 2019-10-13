@@ -59,14 +59,28 @@ public class Repository {
         return foundCommits;
     }
 
+    private void arrangeCommitsById(){
+        ArrayList<Integer> commitsUniqueId = new ArrayList<Integer>();
+        for (Commit commit : this.commits){
+            commitsUniqueId.add(commit.getUniqueId());
+        }
+        Collections.sort(commitsUniqueId);
+        ArrayList<Commit> sortedArray = new ArrayList<Commit>();
+        for (int id : commitsUniqueId){
+            sortedArray.add(getCommitById(id));
+        }
+        this.commits = sortedArray;
+    }
+
     public void revertAtCommit(int uniqueId) {
+        this.arrangeCommitsById();
         Commit lastCommit = getCommitById(uniqueId);
         int indexNumberOfLastCommit = this.commits.indexOf(lastCommit);
         int numberOfCommits = this.commits.size();
-
         for (int i = numberOfCommits - 1; i > indexNumberOfLastCommit; i--){
             this.commits.remove(i);
         }
 
     }
+
 }
